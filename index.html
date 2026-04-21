@@ -5,7 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OUTE&reg;</title>
   <meta name="description" content="Made in London">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:title" content="OUTE®">
+  <meta property="og:description" content="Made in London">
+  <meta property="og:image" content="https://oute.co.uk/images/header-logo.svg">
+  <meta property="og:url" content="https://oute.co.uk">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: #F5D547;
+      color: #3B2314;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -93,6 +109,7 @@
       align-items: center;
       gap: 1rem;
       text-align: center;
+      opacity: 0.5;
     }
 
     .sep::before,
@@ -107,6 +124,12 @@
       margin-top: 0.5rem;
     }
 
+    .footer {
+      font-size: 0.75em;
+      vertical-align: super;
+      line-height: 1.4;
+    }
+
     @media (max-width: 500px) {
       .site {
         padding: 2rem 1.25rem 3rem;
@@ -116,7 +139,7 @@
 </head>
 <body>
 
-  <div class="site">
+  <div class="site" id="top">
 
     <img class="logo" src="images/header-logo.svg" alt="OUTE">
 
