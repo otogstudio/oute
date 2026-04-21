@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUTE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      border-radius: 0;
+    }
+
+    body {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.7;
+      background: #FFFFF0;
+      color: #3B2314;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #3B2314;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid #3B2314;
+      padding-bottom: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Intro ── */
+    .intro {
+      border-bottom: 1px solid #3B2314;
+      padding-bottom: 3rem;
+      margin-bottom: 3rem;
+      max-width: 540px;
+    }
+
+    .intro p + p {
+      margin-top: 1rem;
+    }
+
+    /* ── Products ── */
+    .products {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .product-card {
+      border: 1px solid #3B2314;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-bottom: 1px solid #3B2314;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFFFF0;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-price {
+      margin-top: 1rem;
+      border-top: 1px solid #3B2314;
+      padding-top: 1rem;
+    }
+
+    .product-desc {
+      margin-top: 1rem;
+    }
+
+    .shopify-buy-button {
+      margin-top: 1.5rem;
+      border: 1px dashed #3B2314;
+      padding: 0.75rem;
+      text-align: center;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid #3B2314;
+      margin-top: 3rem;
+      padding-top: 3rem;
+    }
+
+    footer p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .site {
+        padding: 2rem 1.5rem;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site">
+
+    <header>
+      <p>OUTE&reg;</p>
+      <p style="margin-top: 1rem;">English-made caps shaped by older ways of doing things.</p>
+    </header>
+
+    <div class="intro">
+      <p>OUTE&reg; is a small collection of caps that take their cues from heritage English headwear. Each design starts with archival shapes and proportions, then gets reworked into something intended for everyday wear.</p>
+      <p>The materials are sourced in Britain where possible, and every cap is cut and sewn in England. We work in small runs, take our time with the details, and only release what we believe in.</p>
+    </div>
+
+    <section class="products">
+
+      <div class="product-card">
+        <div class="product-image">
+          <!-- Replace with: <img src="your-image.jpg" alt="OUTE 01"> -->
+          480 x 480
+        </div>
+        <div class="product-info">
+          <p>OUTE&reg; 01</p>
+          <p class="product-price">&pound;80.00</p>
+          <p class="product-desc">Our first cap. A structured three-panel design with a shorter peak, close crown, and clean lines. Made from a heavyweight cotton twill woven in Lancashire.</p>
+          <div class="shopify-buy-button" id="product-1">
+            Coming soon
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <!-- Replace with: <img src="your-image.jpg" alt="OUTE 02"> -->
+          480 x 480
+        </div>
+        <div class="product-info">
+          <p>OUTE&reg; 02</p>
+          <p class="product-price">&pound;80.00</p>
+          <p class="product-desc">A softer, unstructured cap with a fuller crown, longer peak, and lighter cloth. Designed to sit easy and wear well over time. Made in England from a brushed cotton canvas.</p>
+          <div class="shopify-buy-button" id="product-2">
+            Coming soon
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer>
+      <p>OUTE&reg; is designed and developed in London. Every cap is cut, sewn, and finished in England using materials sourced as close to home as we can find them. We work with a small number of makers who share our standards and take the same care we do.</p>
+      <p style="margin-top: 1rem;">For enquiries, stockist info, or to say hello, reach us at <a href="mailto:hello@oute.co.uk">hello@oute.co.uk</a></p>
+      <p style="margin-top: 2rem;">OUTE&reg;, 2026. All rights reserved.</p>
+      <p style="margin-top: 0.25rem;">OUTE&reg; is a registered trademark. UK00004202786.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
