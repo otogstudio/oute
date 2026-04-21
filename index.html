@@ -87,8 +87,18 @@
 
     .sep {
       margin: 3rem 0;
-      border: none;
-      border-top: 1px solid #3B2314;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .sep::before,
+    .sep::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #3B2314;
     }
 
     .footer p + p {
@@ -140,7 +150,7 @@
 
     <p>English-made caps shaped by older ways of doing things.</p>
 
-    <hr class="sep">
+    <p class="sep">* * *</p>
 
     <div class="about">
       <p>OUTE&reg; is a small collection of caps that take their cues from heritage English headwear. Each design starts with archival shapes and proportions, then gets reworked into something intended for everyday wear.</p>
@@ -167,7 +177,7 @@
       <span class="btn">Coming soon</span>
     </div>
 
-    <hr class="sep">
+    <p class="sep">* * *</p>
 
     <div class="footer">
       <p>OUTE&reg; is designed and developed in London. Every cap is cut, sewn, and finished in England using materials sourced as close to home as we can find them. We work with a small number of makers who share our standards and take the same care we do.</p>
