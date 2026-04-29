@@ -57,21 +57,26 @@
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       padding: 1.25rem;
       padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
-      gap: 1.25rem;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      max-height: calc(100dvh - 2.5rem);
     }
 
     .hero-image {
       display: block;
       width: 100%;
-      flex: 1;
       object-fit: contain;
       min-height: 0;
-    }
-
-    .footer p + p {
-      margin-top: 0.5rem;
+      flex: 1;
     }
 
     .footer {
@@ -79,6 +84,11 @@
       vertical-align: super;
       line-height: 1.4;
       text-align: center;
+      flex-shrink: 0;
+    }
+
+    .footer p + p {
+      margin-top: 0.5rem;
     }
   </style>
 </head>
@@ -86,14 +96,18 @@
 
   <div class="site" id="top">
 
-    <img class="hero-image" src="images/oute-soon.jpg" alt="">
+    <div class="content">
 
-    <div class="footer">
-      <p>OUTE&reg; is designed and developed in London. Every cap is cut, sewn, and finished in England using materials sourced as close to home as we can find them. We work with a small number of makers who share our standards and take the same care we do.</p>
-      <p>All orders are placed directly with us.<br>To enquire, purchase, or just say hello, reach us via <a href="mailto:oute.co.uk@gmail.com">Email</a> or <a href="https://www.instagram.com/oute.co.uk">Instagram</a>.</p>
-      <p>OUTE&reg;, 2026. All rights reserved.</p>
-      <p>OUTE&reg; is a registered trademark. UK00004202786.</p>
-      <img src="images/footer-logo.svg" alt="OUTE" style="display:block;width:50px;height:50px;margin:1.25rem auto 0;">
+      <img class="hero-image" src="images/oute-soon.jpg" alt="">
+
+      <div class="footer">
+        <p>OUTE&reg; is designed and developed in London. Every cap is cut, sewn, and finished in England using materials sourced as close to home as we can find them. We work with a small number of makers who share our standards and take the same care we do.</p>
+        <p>All orders are placed directly with us.<br>To enquire, purchase, or just say hello, reach us via <a href="mailto:oute.co.uk@gmail.com">Email</a> or <a href="https://www.instagram.com/oute.co.uk">Instagram</a>.</p>
+        <p>OUTE&reg;, 2026. All rights reserved.</p>
+        <p>OUTE&reg; is a registered trademark. UK00004202786.</p>
+        <img src="images/footer-logo.svg" alt="OUTE" style="display:block;width:50px;height:50px;margin:1.25rem auto 0;">
+      </div>
+
     </div>
 
   </div>
