@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>OUTE&reg;</title>
   <meta name="description" content="Made in London">
   <link rel="icon" href="favicon.ico">
@@ -14,8 +14,8 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
   <style>
-    html {
-      scroll-behavior: smooth;
+    html, body {
+      height: 100%;
     }
 
     ::selection {
@@ -45,23 +45,29 @@
       color: #3B2314;
     }
 
-    .site {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 1rem 1.25rem 1.5rem;
-      text-align: center;
-    }
-
     p {
       text-align: justify;
       text-align-last: center;
       text-wrap: pretty;
     }
 
+    .site {
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      padding: 1.25rem;
+      padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
+      gap: 1.25rem;
+    }
+
     .hero-image {
       display: block;
-      max-width: 100%;
-      margin: 0 auto 1.5rem;
+      width: 100%;
+      flex: 1;
+      object-fit: contain;
+      min-height: 0;
     }
 
     .footer p + p {
@@ -72,6 +78,7 @@
       font-size: 0.75em;
       vertical-align: super;
       line-height: 1.4;
+      text-align: center;
     }
   </style>
 </head>
@@ -86,7 +93,7 @@
       <p>All orders are placed directly with us.<br>To enquire, purchase, or just say hello, reach us via <a href="mailto:oute.co.uk@gmail.com">Email</a> or <a href="https://www.instagram.com/oute.co.uk">Instagram</a>.</p>
       <p>OUTE&reg;, 2026. All rights reserved.</p>
       <p>OUTE&reg; is a registered trademark. UK00004202786.</p>
-      <img src="images/footer-logo.svg" alt="OUTE" style="display:block;width:50px;height:50px;margin:2rem auto 0;">
+      <img src="images/footer-logo.svg" alt="OUTE" style="display:block;width:50px;height:50px;margin:1.25rem auto 0;">
     </div>
 
   </div>
