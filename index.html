@@ -22,6 +22,7 @@
       background: #F5D547;
       color: #3B2314;
     }
+
     * {
       margin: 0;
       padding: 0;
@@ -37,6 +38,7 @@
       background: #fff;
       color: #3B2314;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     a {
@@ -44,10 +46,10 @@
     }
 
     .site {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 1.5rem;
+      text-align: center;
     }
 
     p {
@@ -56,68 +58,10 @@
       text-wrap: pretty;
     }
 
-    .logo {
+    .hero-image {
       display: block;
-      width: 200px;
-      margin: 0 auto 2rem;
-    }
-
-    .about {
-      margin-bottom: 3rem;
-    }
-
-    .about p + p {
-      margin-top: 1rem;
-    }
-
-    .product {
-      margin-bottom: 3rem;
-    }
-
-    .product-image {
-      width: 75%;
-      aspect-ratio: 1 / 1;
-      background: #fff;
-      border: 1px solid #3B2314;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-    }
-
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .product p + p {
-      margin-top: 0.5rem;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 0.5rem;
-      text-decoration: underline;
-      cursor: default;
-      pointer-events: none;
-    }
-
-    .sep {
-      margin: 3rem -6rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      text-align: center;
-      opacity: 0.5;
-    }
-
-    .sep::before,
-    .sep::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #3B2314;
+      max-width: 100%;
+      margin: 0 auto 1.5rem;
     }
 
     .footer p + p {
@@ -129,18 +73,22 @@
       vertical-align: super;
       line-height: 1.4;
     }
-
-    @media (max-width: 500px) {
-      .site {
-        padding: 2rem 1.25rem 3rem;
-      }
-    }
   </style>
 </head>
 <body>
 
   <div class="site" id="top">
-    <img src="images/footer-logo.svg" alt="OUTE" style="width:60px;height:60px;">
+
+    <img class="hero-image" src="images/oute-soon.jpg" alt="">
+
+    <div class="footer">
+      <p>OUTE&reg; is designed and developed in London. Every cap is cut, sewn, and finished in England using materials sourced as close to home as we can find them. We work with a small number of makers who share our standards and take the same care we do.</p>
+      <p>All orders are placed directly with us.<br>To enquire, purchase, or just say hello, reach us via <a href="mailto:oute.co.uk@gmail.com">Email</a> or <a href="https://www.instagram.com/oute.co.uk">Instagram</a>.</p>
+      <p>OUTE&reg;, 2026. All rights reserved.</p>
+      <p>OUTE&reg; is a registered trademark. UK00004202786.</p>
+      <img src="images/footer-logo.svg" alt="OUTE" style="display:block;width:50px;height:50px;margin:2rem auto 0;">
+    </div>
+
   </div>
 
 </body>
