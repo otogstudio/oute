@@ -213,8 +213,21 @@
       textSlide.style.height = img.offsetHeight + 'px';
     }
 
-    img.addEventListener('load', sizeTextSlide);
-    window.addEventListener('resize', sizeTextSlide);
+    function positionCounter() {
+      const wrapRect = gallery.getBoundingClientRect();
+      const imgRect = img.getBoundingClientRect();
+      const bottomOffset = (wrapRect.bottom - imgRect.bottom) + 12;
+      counter.style.bottom = bottomOffset + 'px';
+    }
+
+    img.addEventListener('load', function () {
+      sizeTextSlide();
+      positionCounter();
+    });
+    window.addEventListener('resize', function () {
+      sizeTextSlide();
+      positionCounter();
+    });
 
     function showSlide(index) {
       const slide = slides[index];
@@ -223,11 +236,15 @@
         img.style.display = 'none';
         textSlide.style.display = 'flex';
         counter.classList.add('on-text');
+        counter.style.bottom = '0.75rem';
       } else {
         textSlide.style.display = 'none';
         img.style.display = 'block';
         img.src = slide.src;
         counter.classList.remove('on-text');
+        requestAnimationFrame(function () {
+          positionCounter();
+        });
       }
       counter.textContent = (index + 1) + ' / ' + slides.length;
     }
