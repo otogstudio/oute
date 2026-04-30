@@ -17,6 +17,7 @@
   <style>
     html, body {
       height: 100%;
+      overflow: hidden;
     }
 
     ::selection {
@@ -62,61 +63,52 @@
     .site {
       max-width: 480px;
       margin: 0 auto;
-      min-height: 100dvh;
+      height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0 0 calc(1.25rem + env(safe-area-inset-bottom));
+      padding: 1.25rem;
+      padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
+      gap: 1.5rem;
       animation: fadeIn 1.5s ease-out;
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-height: 100dvh;
-      width: 100%;
     }
 
     .gallery-wrap {
       position: relative;
-      width: 100%;
       flex: 1;
       min-height: 0;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
+      overflow: hidden;
     }
 
     .hero-image {
       display: block;
-      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
-      min-height: 0;
-      flex: 1;
     }
 
     .text-slide {
       display: none;
-      width: 100%;
-      aspect-ratio: 2 / 3;
       background: #F3F0EB;
-      font-size: 0.85em;
+      font-size: 0.75em;
       font-style: italic;
       line-height: 1.6;
-      text-align-last: center;
-      padding: 2.5rem 2rem;
+      padding: 2rem 1.5rem;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      max-height: 100%;
+      overflow-y: auto;
     }
 
     .text-slide-inner {
-      max-width: 300px;
+      max-width: 280px;
     }
 
     .text-slide p + p {
@@ -146,16 +138,12 @@
       opacity: 0.3;
     }
 
-    .footer-wrapper {
-      width: 100%;
-      padding: 1.5rem 1.25rem 0;
-      flex-shrink: 0;
-    }
-
     .footer {
       font-size: 0.75em;
       line-height: 1.4;
       text-align: center;
+      flex-shrink: 0;
+      width: 100%;
     }
 
     .footer p + p {
@@ -169,56 +157,35 @@
       margin-top: 0.75rem;
       text-align: center;
     }
-
-    @media (min-width: 501px) {
-      .site {
-        padding: 1.25rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom));
-      }
-
-      .content {
-        max-height: calc(100dvh - 2.5rem);
-        gap: 0;
-      }
-
-      .footer-wrapper {
-        padding: 1.5rem 0 0;
-      }
-    }
   </style>
 </head>
 <body>
 
   <div class="site" id="top">
 
-    <div class="content">
-
-      <div class="gallery-wrap" id="gallery">
-        <img class="hero-image" id="gallery-img" src="images/oute-cap-0.jpg" alt="">
-        <div class="text-slide" id="text-slide">
-          <div class="text-slide-inner">
-            <p>We made this cap because nothing we found was good enough. It sat around the studio for a while, got worn in, got better. We lined it, swapped the cloth, shortened the peak. Kept refining it until there was nothing left to change.</p>
-            <p>We spent two years trying to find a name for it. Nothing felt right. Then we noticed something. Strangers on the street, people at dinner, friends who came by. They all said the same thing. Nice hat. So that's what it's called.</p>
-            <p>Cut from a heavyweight cotton twill with a shorter peak and a close crown, lined inside for a cleaner feel against the head. Made in England.</p>
-          </div>
-        </div>
-        <span class="gallery-counter" id="counter">1 / 7</span>
-      </div>
-
-      <div class="footer-wrapper">
-        <div class="footer">
-          <p>OUTE&reg; is designed and made in London. Every piece is finished in England using materials sourced as close to home as we can find them. We work with a small number of makers who share our standards and take the same care we do.</p>
-          <p>New pieces are released as they're ready.</p>
-          <p>All orders are placed directly with us.<br>To enquire, purchase, or just say hello, reach us via <a href="mailto:oute.co.uk@gmail.com">Email</a> or <a href="https://www.instagram.com/oute.co.uk">Instagram</a>.</p>
-          <img src="images/footer-logo.svg" alt="OUTE" style="display:block;width:50px;height:50px;margin:1.25rem auto 0;">
-          <div class="footer-legal">
-            OUTE&reg;, 2026. All rights reserved.<br>
-            Registered trademark under the<br>
-            United Kingdom Intellectual Property Office.<br>
-            Reg. No. UK00004202786.
-          </div>
+    <div class="gallery-wrap" id="gallery">
+      <img class="hero-image" id="gallery-img" src="images/oute-cap-0.jpg" alt="">
+      <div class="text-slide" id="text-slide">
+        <div class="text-slide-inner">
+          <p>We made this cap because nothing we found was good enough. It sat around the studio for a while, got worn in, got better. We lined it, swapped the cloth, shortened the peak. Kept refining it until there was nothing left to change.</p>
+          <p>We spent two years trying to find a name for it. Nothing felt right. Then we noticed something. Strangers on the street, people at dinner, friends who came by. They all said the same thing. Nice hat. So that's what it's called.</p>
+          <p>Cut from a heavyweight cotton twill with a shorter peak and a close crown, lined inside for a cleaner feel against the head. Made in England.</p>
         </div>
       </div>
+      <span class="gallery-counter" id="counter">1 / 7</span>
+    </div>
 
+    <div class="footer">
+      <p>OUTE&reg; is designed and made in London. Every piece is finished in England using materials sourced as close to home as we can find them. We work with a small number of makers who share our standards and take the same care we do.</p>
+      <p>New pieces are released as they're ready.</p>
+      <p>All orders are placed directly with us.<br>To enquire, purchase, or just say hello, reach us via <a href="mailto:oute.co.uk@gmail.com">Email</a> or <a href="https://www.instagram.com/oute.co.uk">Instagram</a>.</p>
+      <img src="images/footer-logo.svg" alt="OUTE" style="display:block;width:50px;height:50px;margin:1.25rem auto 0;">
+      <div class="footer-legal">
+        OUTE&reg;, 2026. All rights reserved.<br>
+        Registered trademark under the<br>
+        United Kingdom Intellectual Property Office.<br>
+        Reg. No. UK00004202786.
+      </div>
     </div>
 
   </div>
@@ -241,9 +208,18 @@
 
     let current = 0;
 
+    function sizeTextSlide() {
+      textSlide.style.width = img.offsetWidth + 'px';
+      textSlide.style.height = img.offsetHeight + 'px';
+    }
+
+    img.addEventListener('load', sizeTextSlide);
+    window.addEventListener('resize', sizeTextSlide);
+
     function showSlide(index) {
       const slide = slides[index];
       if (slide.type === 'text') {
+        sizeTextSlide();
         img.style.display = 'none';
         textSlide.style.display = 'flex';
         counter.classList.add('on-text');
