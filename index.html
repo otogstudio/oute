@@ -85,6 +85,8 @@
       object-fit: contain;
       min-height: 0;
       flex: 1;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .footer-wrapper {
@@ -133,7 +135,7 @@
 
     <div class="content">
 
-      <img class="hero-image" src="images/oute-soon.jpg" alt="">
+      <img class="hero-image" id="gallery" src="images/oute-cap-0.jpg" alt="">
 
       <div class="footer-wrapper">
         <div class="footer">
@@ -152,6 +154,24 @@
     </div>
 
   </div>
+
+  <script>
+    const img = document.getElementById('gallery');
+    const sources = [
+      'images/oute-cap-0.jpg',
+      'images/oute-cap-1.jpg',
+      'images/oute-cap-2.jpg',
+      'images/oute-cap-3.jpg',
+      'images/oute-cap-4.jpg',
+      'images/oute-cap-5.jpg'
+    ];
+    let current = 0;
+
+    img.addEventListener('click', function () {
+      current = (current + 1) % sources.length;
+      img.src = sources[current];
+    });
+  </script>
 
 </body>
 </html>
