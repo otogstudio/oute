@@ -85,6 +85,10 @@
       flex: 1;
       min-height: 0;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .hero-image {
@@ -93,8 +97,35 @@
       object-fit: contain;
       min-height: 0;
       flex: 1;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
+    }
+
+    .text-slide {
+      display: none;
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      background: #F3F0EB;
+      font-size: 0.85em;
+      font-style: italic;
+      line-height: 1.6;
+      text-align-last: center;
+      padding: 2.5rem 2rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-height: 100%;
+    }
+
+    .text-slide-inner {
+      max-width: 300px;
+    }
+
+    .text-slide p + p {
+      margin-top: 0.75rem;
+    }
+
+    .text-slide p {
+      text-align: center;
+      text-align-last: center;
     }
 
     .gallery-counter {
@@ -107,6 +138,12 @@
       color: #FAF8F5;
       opacity: 0.8;
       pointer-events: none;
+      transition: color 0.1s;
+    }
+
+    .gallery-counter.on-text {
+      color: #3B2314;
+      opacity: 0.3;
     }
 
     .footer-wrapper {
@@ -155,9 +192,16 @@
 
     <div class="content">
 
-      <div class="gallery-wrap">
-        <img class="hero-image" id="gallery" src="images/oute-cap-0.jpg" alt="">
-        <span class="gallery-counter" id="counter">1 / 6</span>
+      <div class="gallery-wrap" id="gallery">
+        <img class="hero-image" id="gallery-img" src="images/oute-cap-0.jpg" alt="">
+        <div class="text-slide" id="text-slide">
+          <div class="text-slide-inner">
+            <p>We made this cap because nothing we found was good enough. It sat around the studio for a while, got worn in, got better. We lined it, swapped the cloth, shortened the peak. Kept refining it until there was nothing left to change.</p>
+            <p>We spent two years trying to find a name for it. Nothing felt right. Then we noticed something. Strangers on the street, people at dinner, friends who came by. They all said the same thing. Nice hat. So that's what it's called.</p>
+            <p>Cut from a heavyweight cotton twill with a shorter peak and a close crown, lined inside for a cleaner feel against the head. Made in England.</p>
+          </div>
+        </div>
+        <span class="gallery-counter" id="counter">1 / 7</span>
       </div>
 
       <div class="footer-wrapper">
@@ -180,22 +224,41 @@
   </div>
 
   <script>
-    const img = document.getElementById('gallery');
+    const gallery = document.getElementById('gallery');
+    const img = document.getElementById('gallery-img');
+    const textSlide = document.getElementById('text-slide');
     const counter = document.getElementById('counter');
-    const sources = [
-      'images/oute-cap-0.jpg',
-      'images/oute-cap-1.jpg',
-      'images/oute-cap-2.jpg',
-      'images/oute-cap-3.jpg',
-      'images/oute-cap-4.jpg',
-      'images/oute-cap-5.jpg'
+
+    const slides = [
+      { type: 'image', src: 'images/oute-cap-0.jpg' },
+      { type: 'text' },
+      { type: 'image', src: 'images/oute-cap-1.jpg' },
+      { type: 'image', src: 'images/oute-cap-2.jpg' },
+      { type: 'image', src: 'images/oute-cap-3.jpg' },
+      { type: 'image', src: 'images/oute-cap-4.jpg' },
+      { type: 'image', src: 'images/oute-cap-5.jpg' }
     ];
+
     let current = 0;
 
-    img.addEventListener('click', function () {
-      current = (current + 1) % sources.length;
-      img.src = sources[current];
-      counter.textContent = (current + 1) + ' / ' + sources.length;
+    function showSlide(index) {
+      const slide = slides[index];
+      if (slide.type === 'text') {
+        img.style.display = 'none';
+        textSlide.style.display = 'flex';
+        counter.classList.add('on-text');
+      } else {
+        textSlide.style.display = 'none';
+        img.style.display = 'block';
+        img.src = slide.src;
+        counter.classList.remove('on-text');
+      }
+      counter.textContent = (index + 1) + ' / ' + slides.length;
+    }
+
+    gallery.addEventListener('click', function () {
+      current = (current + 1) % slides.length;
+      showSlide(current);
     });
   </script>
 
