@@ -79,6 +79,14 @@
       width: 100%;
     }
 
+    .gallery-wrap {
+      position: relative;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+    }
+
     .hero-image {
       display: block;
       width: 100%;
@@ -87,6 +95,18 @@
       flex: 1;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
+    }
+
+    .gallery-counter {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: #FAF8F5;
+      opacity: 0.8;
+      pointer-events: none;
     }
 
     .footer-wrapper {
@@ -135,7 +155,10 @@
 
     <div class="content">
 
-      <img class="hero-image" id="gallery" src="images/oute-cap-0.jpg" alt="">
+      <div class="gallery-wrap">
+        <img class="hero-image" id="gallery" src="images/oute-cap-0.jpg" alt="">
+        <span class="gallery-counter" id="counter">1 / 6</span>
+      </div>
 
       <div class="footer-wrapper">
         <div class="footer">
@@ -157,6 +180,7 @@
 
   <script>
     const img = document.getElementById('gallery');
+    const counter = document.getElementById('counter');
     const sources = [
       'images/oute-cap-0.jpg',
       'images/oute-cap-1.jpg',
@@ -170,6 +194,7 @@
     img.addEventListener('click', function () {
       current = (current + 1) % sources.length;
       img.src = sources[current];
+      counter.textContent = (current + 1) + ' / ' + sources.length;
     });
   </script>
 
