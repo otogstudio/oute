@@ -17,7 +17,6 @@
   <style>
     html, body {
       height: 100%;
-      overflow: hidden;
     }
 
     ::selection {
@@ -63,7 +62,7 @@
     .site {
       max-width: 480px;
       margin: 0 auto;
-      height: 100dvh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -77,33 +76,30 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-height: 100%;
       width: 100%;
       gap: 1.5rem;
     }
 
     .gallery-wrap {
       position: relative;
-      flex: 1;
-      min-height: 0;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
-      overflow: hidden;
     }
 
     .hero-image {
       display: block;
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+      width: 100%;
+      height: auto;
     }
 
     .text-slide {
       display: none;
+      width: 100%;
+      aspect-ratio: 2 / 3;
       background: #F3F0EB;
       font-size: 0.75em;
       font-style: italic;
@@ -112,7 +108,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      overflow-y: auto;
     }
 
     .text-slide-inner {
@@ -130,15 +125,15 @@
 
     .gallery-counter {
       position: absolute;
+      bottom: 0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 10px;
       letter-spacing: 0.04em;
       color: #FAF8F5;
       opacity: 0.8;
       pointer-events: none;
       transition: color 0.1s;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 0.75rem;
     }
 
     .gallery-counter.on-text {
@@ -164,6 +159,39 @@
       line-height: 1.3;
       margin-top: 0.75rem;
       text-align: center;
+    }
+
+    /* Desktop: constrain to viewport, no scroll */
+    @media (min-width: 501px) {
+      html, body {
+        overflow: hidden;
+      }
+
+      .site {
+        height: 100dvh;
+        min-height: 0;
+      }
+
+      .content {
+        max-height: 100%;
+      }
+
+      .gallery-wrap {
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .hero-image {
+        width: auto;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .text-slide {
+        aspect-ratio: auto;
+      }
     }
   </style>
 </head>
@@ -221,25 +249,17 @@
     let current = 0;
 
     function sizeTextSlide() {
-      textSlide.style.width = img.offsetWidth + 'px';
-      textSlide.style.height = img.offsetHeight + 'px';
+      if (window.innerWidth >= 501) {
+        textSlide.style.width = img.offsetWidth + 'px';
+        textSlide.style.height = img.offsetHeight + 'px';
+      } else {
+        textSlide.style.width = '';
+        textSlide.style.height = '';
+      }
     }
 
-    function positionCounter() {
-      const wrapRect = gallery.getBoundingClientRect();
-      const imgRect = img.getBoundingClientRect();
-      const bottomOffset = (wrapRect.bottom - imgRect.bottom) + 12;
-      counter.style.bottom = bottomOffset + 'px';
-    }
-
-    img.addEventListener('load', function () {
-      sizeTextSlide();
-      positionCounter();
-    });
-    window.addEventListener('resize', function () {
-      sizeTextSlide();
-      positionCounter();
-    });
+    img.addEventListener('load', sizeTextSlide);
+    window.addEventListener('resize', sizeTextSlide);
 
     function showSlide(index) {
       const slide = slides[index];
@@ -248,15 +268,11 @@
         img.style.display = 'none';
         textSlide.style.display = 'flex';
         counter.classList.add('on-text');
-        counter.style.bottom = '0.75rem';
       } else {
         textSlide.style.display = 'none';
         img.style.display = 'block';
         img.src = slide.src;
         counter.classList.remove('on-text');
-        requestAnimationFrame(function () {
-          positionCounter();
-        });
       }
       counter.textContent = (index + 1) + ' / ' + slides.length;
     }
