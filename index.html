@@ -80,6 +80,37 @@
       gap: 1.5rem;
     }
 
+    .storefront {
+      text-align: center;
+    }
+
+    .storefront-status {
+      font-size: 0.75em;
+      text-align: center;
+      text-align-last: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .storefront-info {
+      font-size: 0.65em;
+      text-align: center;
+      text-align-last: center;
+    }
+
+    .storefront-clock {
+      font-size: 0.65em;
+      text-align: center;
+      text-align-last: center;
+    }
+
+    .storefront-local {
+      font-size: 0.55em;
+      text-align: center;
+      text-align-last: center;
+      opacity: 0.4;
+    }
+
     .gallery-wrap {
       position: relative;
       width: 100%;
@@ -96,33 +127,6 @@
       height: auto;
     }
 
-    .text-slide {
-      display: none;
-      width: 100%;
-      aspect-ratio: 2 / 3;
-      background: #F3F0EB;
-      font-size: 0.75em;
-      font-style: italic;
-      line-height: 1.6;
-      padding: 2rem 1.5rem;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .text-slide-inner {
-      max-width: 280px;
-    }
-
-    .text-slide p + p {
-      margin-top: 0.75rem;
-    }
-
-    .text-slide p {
-      text-align: center;
-      text-align-last: center;
-    }
-
     .gallery-counter {
       position: absolute;
       bottom: 0.75rem;
@@ -133,11 +137,39 @@
       color: #FAF8F5;
       opacity: 0.8;
       pointer-events: none;
-      transition: color 0.1s;
     }
 
-    .gallery-counter.on-text {
-      color: #3B2314;
+    .product-description {
+      font-size: 0.75em;
+      line-height: 1.6;
+      text-align: justify;
+      text-align-last: center;
+      width: 85%;
+    }
+
+    .product-description p + p {
+      margin-top: 0.5rem;
+    }
+
+    .gallery-wrap + .product-description {
+      margin-top: -0.75rem;
+    }
+
+    .divider {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+      font-size: 0.75em;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #3B2314;
       opacity: 0.3;
     }
 
@@ -161,36 +193,10 @@
       text-align: center;
     }
 
-    /* Desktop: constrain to viewport, no scroll */
     @media (min-width: 501px) {
-      html, body {
-        overflow: hidden;
-      }
-
-      .site {
-        height: 100dvh;
-        min-height: 0;
-      }
-
-      .content {
-        max-height: 100%;
-      }
-
-      .gallery-wrap {
-        flex: 1;
-        min-height: 0;
-        overflow: hidden;
-      }
-
       .hero-image {
-        width: auto;
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-      }
-
-      .text-slide {
-        aspect-ratio: auto;
+        width: 100%;
+        height: auto;
       }
     }
   </style>
@@ -201,22 +207,45 @@
 
     <div class="content">
 
-      <div class="gallery-wrap" id="gallery">
-        <img class="hero-image" id="gallery-img" src="images/oute-cap-0.jpg" alt="">
-        <div class="text-slide" id="text-slide">
-          <div class="text-slide-inner">
-            <p>We made this cap because nothing we found was good enough. It sat around the studio for a while, got worn in, got better. We lined it, swapped the cloth, shortened the peak. Kept refining it until there was nothing left to change.</p>
-            <p>Cut from a heavyweight cotton twill with a shorter peak and a close crown, lined inside for a cleaner feel against the head. Made in England.</p>
-          </div>
-        </div>
-        <span class="gallery-counter" id="counter">1 / 7</span>
+      <img src="images/oute-logo-header.svg" alt="OUTE" style="display:block;width:150px;margin:0 auto;">
+
+      <div class="storefront">
+        <p class="storefront-status">Open</p>
+        <p class="storefront-info">Mon–Fri</p>
       </div>
+
+      <div class="divider">* * *</div>
+
+      <!-- Caps gallery -->
+      <div class="gallery-wrap" id="gallery-caps">
+        <img class="hero-image" id="caps-img" src="images/oute-cap-0.jpg" alt="">
+        <span class="gallery-counter" id="caps-counter">1 / 6</span>
+      </div>
+
+      <div class="product-description">
+        <p>This cap takes its shape from traditional cycling and cricket caps, reworked into something more casual and everyday. It's constructed in the old way, fully lined inside, and cut from a heavier weight cotton twill.</p>
+        <p>It ages beautifully. The cloth softens, the colours settle, and the cap becomes entirely yours over time. Made in London.</p>
+      </div>
+
+      <div class="divider">* * *</div>
+
+      <!-- Buttons gallery -->
+      <div class="gallery-wrap" id="gallery-buttons">
+        <img class="hero-image" id="buttons-img" src="images/oute-button-0.png" alt="">
+        <span class="gallery-counter" id="buttons-counter">1 / 2</span>
+      </div>
+
+      <div class="product-description">
+        <p>Each button is pressed into sand by hand, with the stones set in place before casting. Molten pewter is poured into the mould and left to set. Once cooled, each piece is finished and polished by hand.</p>
+        <p>The stones are lab-grown, chemically identical to their natural counterparts. Lead-free English pewter, 2cm diameter. Made to replace the top button on a favourite shirt or jacket, or anywhere you see fit.</p>
+      </div>
+
+      <div class="divider">* * *</div>
 
       <div class="footer">
         <p>OUTE&reg; is designed and made in London. Every piece is finished in England using materials sourced as close to home as we can find them. We work with a small number of makers who share our standards and take the same care we do.</p>
         <p>New pieces are released as they're ready.</p>
         <p>All orders are placed directly with us.<br>To enquire, purchase, or just say hello, reach us via <a href="mailto:oute.co.uk@gmail.com">Email</a> or <a href="https://www.instagram.com/oute.co.uk">Instagram</a>.</p>
-        <div style="width:90%;height:1px;background:#3B2314;opacity:0.15;margin:1.25rem auto 0;"></div>
         <img src="images/footer-logo.svg" alt="OUTE" style="display:block;width:50px;height:50px;margin:1.25rem auto 0;">
         <div class="footer-legal">
           OUTE&reg;, 2026. All rights reserved.<br>
@@ -231,56 +260,87 @@
   </div>
 
   <script>
-    const gallery = document.getElementById('gallery');
-    const img = document.getElementById('gallery-img');
-    const textSlide = document.getElementById('text-slide');
-    const counter = document.getElementById('counter');
+    // Caps gallery
+    (function () {
+      const wrap = document.getElementById('gallery-caps');
+      const img = document.getElementById('caps-img');
+      const counter = document.getElementById('caps-counter');
 
-    const slides = [
-      { type: 'image', src: 'images/oute-cap-0.jpg' },
-      { type: 'text' },
-      { type: 'image', src: 'images/oute-cap-1.jpg' },
-      { type: 'image', src: 'images/oute-cap-2.jpg' },
-      { type: 'image', src: 'images/oute-cap-3.jpg' },
-      { type: 'image', src: 'images/oute-cap-4.jpg' },
-      { type: 'image', src: 'images/oute-cap-5.jpg' }
-    ];
+      const sources = [
+        'images/oute-cap-0.jpg',
+        'images/oute-cap-1.jpg',
+        'images/oute-cap-2.jpg',
+        'images/oute-cap-3.jpg',
+        'images/oute-cap-4.jpg',
+        'images/oute-cap-5.jpg'
+      ];
 
-    let current = 0;
+      let current = 0;
 
-    function sizeTextSlide() {
-      if (window.innerWidth >= 501) {
-        textSlide.style.width = img.offsetWidth + 'px';
-        textSlide.style.height = img.offsetHeight + 'px';
-      } else {
-        textSlide.style.width = '';
-        textSlide.style.height = '';
+      wrap.addEventListener('click', function () {
+        current = (current + 1) % sources.length;
+        img.src = sources[current];
+        counter.textContent = (current + 1) + ' / ' + sources.length;
+      });
+    })();
+
+    // Buttons gallery
+    (function () {
+      const wrap = document.getElementById('gallery-buttons');
+      const img = document.getElementById('buttons-img');
+      const counter = document.getElementById('buttons-counter');
+
+      const sources = [
+        'images/oute-button-0.png',
+        'images/oute-button-1.png'
+      ];
+
+      let current = 0;
+
+      wrap.addEventListener('click', function () {
+        current = (current + 1) % sources.length;
+        img.src = sources[current];
+        counter.textContent = (current + 1) + ' / ' + sources.length;
+      });
+    })();
+
+    // Live London clock
+    (function () {
+      const el = document.getElementById('clock');
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+      function tick() {
+        const now = new Date();
+        const options = { timeZone: 'Europe/London' };
+        const dayNum = parseInt(now.toLocaleString('en-GB', { ...options, weekday: 'narrow' }).charAt(0), 10) || now.toLocaleString('en-GB', { ...options, weekday: 'short' });
+        const parts = {
+          day: now.toLocaleString('en-GB', { ...options, weekday: 'short' }),
+          date: now.toLocaleString('en-GB', { ...options, day: 'numeric' }),
+          month: now.toLocaleString('en-GB', { ...options, month: 'short' }),
+          hour: now.toLocaleString('en-GB', { ...options, hour: '2-digit', hour12: false }),
+          minute: now.toLocaleString('en-GB', { ...options, minute: '2-digit' }),
+          second: now.toLocaleString('en-GB', { ...options, second: '2-digit' })
+        };
+        const londonDay = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/London' })).getDay();
+        const status = document.querySelector('.storefront-status');
+        const info = document.querySelector('.storefront-info');
+        const isOpen = londonDay >= 1 && londonDay <= 5;
+
+        if (isOpen) {
+          status.textContent = 'Open';
+          info.textContent = 'Mon–Fri';
+        } else {
+          status.textContent = 'Closed';
+          info.textContent = 'Opens Monday';
+        }
+
+        el.textContent = parts.day + ' ' + parts.date + ' ' + parts.month + ' ' + parts.hour + ':' + parts.minute + ':' + parts.second;
       }
-    }
 
-    img.addEventListener('load', sizeTextSlide);
-    window.addEventListener('resize', sizeTextSlide);
-
-    function showSlide(index) {
-      const slide = slides[index];
-      if (slide.type === 'text') {
-        sizeTextSlide();
-        img.style.display = 'none';
-        textSlide.style.display = 'flex';
-        counter.classList.add('on-text');
-      } else {
-        textSlide.style.display = 'none';
-        img.style.display = 'block';
-        img.src = slide.src;
-        counter.classList.remove('on-text');
-      }
-      counter.textContent = (index + 1) + ' / ' + slides.length;
-    }
-
-    gallery.addEventListener('click', function () {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    });
+      tick();
+      setInterval(tick, 1000);
+    })();
   </script>
 
 </body>
